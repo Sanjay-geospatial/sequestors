@@ -5,6 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import pydeck as pdk
 import streamlit as st
+import plotly.express as px
 
 st.set_page_config(page_title="Sequestors | NGO", layout="wide")
 
@@ -75,15 +76,26 @@ df = pd.read_excel('tree_data.xlsx')
 species_counts = df['species_name'].value_counts().reset_index()
 species_counts.columns = ['species_name', 'count']
 
-st.write("Tree species planted so far...")
+st.title("Tree species planted so far...")
 
-st.title("Species Count Bar Chart")
-
-st.bar_chart(
-    data=species_counts,
-    x='species_name',
-    y='count'
+fig = px.bar(
+    species_counts, 
+    x='species_name', 
+    y='count',
+    color='species_name',
+    text='count',
+    title="Species Count",
 )
+
+fig.update_traces(marker=dict(line=dict(width=1, color="black")))
+fig.update_layout(
+    xaxis_title="Species",
+    yaxis_title="Count",
+    title_x=0.5,
+    bargap=0.3,
+)
+
+st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 

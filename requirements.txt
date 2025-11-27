@@ -2,3 +2,5 @@ geopandas
 streamlit
 matplotlib
 pydeck
+openpyxl
+plotly
