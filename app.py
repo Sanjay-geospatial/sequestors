@@ -70,10 +70,12 @@ can transform urban landscapes and breathe life back into our city.
 st.markdown("---")
 
 # Our Impact Section with Visualization (Section 3 - Now spanning full width)
-st.header("Our Impact")
-st.write("Explore 16 specific sites where we've planted trees across Bengaluru.")
-
 df = pd.read_excel('tree_data.xlsx')
+
+st.header("Our Impact")
+st.write(f"Explore {len(df)} specific sites where we've planted trees across Bengaluru")
+
+print(df)
 
 lat_center, lon_center = df['lat'].mean(), df['lon'].mean()
 
