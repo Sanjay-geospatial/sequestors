@@ -72,10 +72,55 @@ st.markdown("---")
 # Our Impact Section with Visualization (Section 3 - Now spanning full width)
 df = pd.read_excel('tree_data.xlsx')
 
+species_counts = df['species_name'].value_counts().reset_index()
+species_counts.columns = ['species_name', 'count']
+
+st.write("Tree species planted so far...")
+
+st.title("Species Count Bar Chart")
+
+st.bar_chart(
+    data=species_counts,
+    x='species_name',
+    y='count'
+)
+
+st.markdown("---")
+
+st.write("We often involve volunteers to create awareness")
+
+st.title("Tree Planting Activity")
+
+with st.expander("📸 Show Tree Planting Activity"):
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("images/pic1.jpg", use_container_width=True)
+
+    with col2:
+        st.image("images/pic4.jpg", use_container_width=True)
+
+    with col3:
+        st.image("images/pic5.jpg", use_container_width=True)
+
+st.title("Plastic drive")
+
+with st.expander("📸 Show clean drive Activity"):
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("images/pic2.jpg", use_container_width=True)
+
+    with col2:
+        st.image("images/pic3.jpg", use_container_width=True)
+
+    with col3:
+        st.image("images/pic6.jpg", use_container_width=True)
+
+
+
 st.header("Our Impact")
 st.write(f"Explore {len(df)} specific sites where we've planted trees across Bengaluru")
-
-print(df)
 
 lat_center, lon_center = df['lat'].mean(), df['lon'].mean()
 
