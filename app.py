@@ -100,9 +100,9 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 
-st.write("We often involve volunteers to create awareness")
+st.header("We often involve volunteers in our activities to create awareness")
 
-st.title("Tree Planting Activity")
+st.markdown("### *Tree Planting Activity*")
 
 with st.expander("📸 Show Tree Planting Activity"):
     col1, col2, col3 = st.columns(3)
@@ -116,7 +116,7 @@ with st.expander("📸 Show Tree Planting Activity"):
     with col3:
         st.image("images/pic5.jpg", use_container_width=True)
 
-st.title("Plastic drive")
+st.markdown("### *Plastic drive*")
 
 with st.expander("📸 Show clean drive Activity"):
     col1, col2, col3 = st.columns(3)
