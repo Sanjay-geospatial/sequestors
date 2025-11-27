@@ -89,6 +89,7 @@ fig = px.bar(
 
 fig.update_traces(marker=dict(line=dict(width=1, color="black")))
 fig.update_layout(
+    showlegend=False,
     xaxis_title="Species",
     yaxis_title="Count",
     title_x=0.5,
